@@ -1,0 +1,14 @@
+server:
+  port: 8000
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true
+      routes:
+        - id: ftsapp
+          uri: http://localhost:8001
+          predicates:
+            - Path=/api/v1/file/**
