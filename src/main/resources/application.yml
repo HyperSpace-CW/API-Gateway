@@ -24,8 +24,15 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: chat
+          uri: ${MESSENGER_SERVICE_WS_URL} #http://localhost:8001
+          predicates:
+            - Path=/chat/**
+          filters:
+            - StripPrefix=1
+
         - id: messenger_service
-          uri: ${MESSENGER_SERVICE_URL} #http://localhost:8001
+          uri: ${MESSENGER_SERVICE_HTTP_URL} #http://localhost:8001
           predicates:
             - Path=/messenger_service/**
           filters:
